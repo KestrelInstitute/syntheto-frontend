@@ -1,0 +1,45 @@
+{
+    "name": "Syntheto",
+    "scopeName": "text.synth",
+    "fileTypes": [
+        "synth"
+    ],
+    "repository": {
+        "general": {
+            "patterns": [
+                {
+                    "include": "#linecomment"
+                },
+                {
+                    "include": "#blockcomment"
+                },
+                {
+                    "include": "#keyword"
+                }
+            ]
+        },
+        "linecomment": {
+            "name": "comment.line.double-dash.syntheto",
+            "begin": "(^[ \\t]+)?(?=//)",
+            "end": "(?=$)"
+        },
+        "blockcomment": {
+            "name": "comment.block.syntheto",
+            "begin": "/\\*(\\*)?(?!/)",
+            "end": "\\*/"
+        },
+         "keyword": {
+            "name": "keyword.control.syntheto",
+            "match": "\\b(_|add|assumes|host|port|use|acl2|bool|char|cond|else|empty|ensures|false|first|forall|function|if|int|is_empty|last|let|map|measure|member|opt|remove_first|rest|return|returns|seq|set|specification|string|struct|subtype|theorem|true|unless|variant|when)\\b|!"
+
+        }
+        
+   
+    },
+    "patterns": [
+        {
+            "include": "#general"
+        }
+    ],
+    "uuid": "4eca20bd-a826-4a2b-ae08-97e315f44d28"
+}

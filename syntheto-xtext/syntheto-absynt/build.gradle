@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+version '0.0.48'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // for BridgeClient:
+    implementation 'org.json:json:20200518'
+    // EricM: removed testCompile and added the other two, and added test{...} below
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+java {
+    withSourcesJar()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

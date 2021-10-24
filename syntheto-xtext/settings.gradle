@@ -1,0 +1,7 @@
+include 'syntheto-absynt'
+include 'edu.vanderbilt.isis.midas.syntheto'
+include 'edu.vanderbilt.isis.midas.syntheto.ide'
+include 'edu.vanderbilt.isis.midas.syntheto.tests'
+include 'syntheto.vscode'
+
+

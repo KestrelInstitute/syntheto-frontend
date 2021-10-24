@@ -1,0 +1,376 @@
+Types
+-----
+
+primitive types:
+
+boolean // TypeBoolean.make()
+character // TypeChracter.make()
+string // TypeString.make()
+integer // TypeInteger.make()
+
+
+collection types:
+
+set<T> // TypeSet.make(<code-to-make-T>)
+seq<T> // TypeSequence.make(<code-to-make-T>)
+map<K,V> // TypeMap.make(<code-to-make-K>, <code-to-make-V>)
+
+
+option types:
+
+opt<T> // TypeOption.make(<code-to-make-T>)
+
+
+defined type name:
+
+mytype // TypeDefined.make(Identifier.make("mytype"))
+
+
+product type definition:
+
+struct S {
+  a: integer,
+  b: integer |
+  a < b} // invariant
+
+// List<Field> fields = new ArrayList<>();
+// fields.add(Field.make(Identifier.make(“a”), TypeInteger.make());
+// fields.add(Field.make(Identifier.make(“b”), TypeInteger.make());
+// Expression invariant = ... // code to make a < b (see expression examples)
+// TypeProduct definer = TypeProduct.make(fields,invariant);
+// (use null for no invariant)
+// TypeDefinition structS = TypeDefinition.make(Identifier.make(“S”), definer);
+
+
+sum type definition:
+
+variant V {
+  a: { a1: integer, a2: integer | a1 < a2 },
+  b: {}
+  c: {c0: T}
+}
+
+// List<Field> aFields = new ArrayList<>();
+// aFields.add(Field.make(Identifier.make("a1"), TypeInteger.make()));
+// aFields.add(Field.make(Identifier.make("a2"), TypeInteger.make()));
+// Expression aInvariant = ... // code to make a1 < a2
+// TypeProduct aProduct = TypeProduct.make(aFields,aInvariant);
+// Alternative aAlternative =
+//   Alternative.make(Identifier.make("a"), aProduct;
+
+// List<Field> bFields = new ArrayList<>();
+// TypeProduct bProduct = TypeProduct.make(bFields, null);
+// Alternative bAlternative =
+//   Alternative.make(Identifier.make("b"), bProduct;
+
+// List<Field> cFields = new ArrayList<>();
+// cFields.add(Field.make(Identifier.make("c0"), /* code to make T */);
+// TypeProduct cProduct = TypeProduct.make(cFields, null);
+// Alternative cAlternative =
+//   Alternative.make(Identifier.make("c"), cProduct;
+
+// List<Alternative> alternatives = new ArrayList<>();
+// alternatives.add(aAlternative);
+// alternatives.add(bAlternative);
+// alternatives.add(cAlternative);
+// TypeSum definer = TypeSum.make(alternatives);
+// TypeDefinition variantV =
+//   TypeDefinition.make(Identifier.make("V"), definer);
+
+
+subtype definition:
+
+type positive = {x: integer | x > 0}
+
+// TypeDefiner definer =
+//   TypeSubset.make(TypeInteger.make(), // the supertype
+//                   Identifier.make("x"), // the variable
+//                   /* code to make x > 0 (see expression examples) */,
+//                   null); // no witness (our ACL2 code will try to infer it)
+
+
+Expressions
+-----------
+
+literals:
+
+3 // LiteralInteger.make(new BigInteger(“3”))
+
+“abc” // LiteralString.make(“abc”)
+
+’t’ // LiteralCharacter.make(’t’)
+
+true // LiteralBoolean.make(true)
+
+
+variables:
+
+myvar // Variable.make(Identifier.make(“myvar”)
+
+
+unary expressions:
+
+- A // ExpressionUnary.make(ExpressionUnary.Operator.MINUS, <A>)
+
+
+binary expressions:
+
+A + B // ExpressionBinary.make(ExpressionBinary.Operator.ADD, <A>, <B>)
+
+
+if expressions:
+
+if (TEST) {
+  THEN
+} else {
+  ELSE
+}
+
+// ExpressionIf.make(<TEST>, <THEN>, <ELSE>)
+
+// in functional languages, ifs always have both branches, but see below
+
+
+when expressions:
+
+when (TEST) {
+  THEN
+}
+ELSE
+
+// ExpressionWhen.make(<TEST>, <THEN>, <ELSE>)
+
+// almost like 'if', but can be syntactically different to represent
+// what looks like an 'if' without 'else'
+
+
+unless expression:
+
+unless (TEST) {
+  THEN
+}
+ELSE
+
+// ExpressionUnless.make(<TEST>, <THEN>, <ELSE>)
+
+// like 'when' but with a flipped test
+
+
+cond expression:
+
+cond {
+  TEST1 {
+    THEN1
+  }
+  TEST2 {
+    THEN2
+  }
+  TEST3 {
+    THEN3
+  }
+}
+
+// List<Branch> branches = new ArrayList<>();
+// branches.add(Branch.make(<TEST1>, <THEN1>);
+// branches.add(Branch.make(<TEST2>, <THEN2>);
+// branches.add(Branch.make(<TEST3>, <THEN3>);
+// ExpressionCond.make(branches)
+
+// if TEST1 holds do THEN1, otherwise if TEST2 holds do THEN2, etc.;
+// like an if-elseif-else-if-..., but without final 'else':
+// ACL2 will check that the conditions are exhaustive
+
+
+function call:
+
+f(A, B, C)
+
+// List<Expression> arguments = new ArrayList<>();
+// arguments.add(<A>);
+// arguments.add(<B>);
+// arguments.add(<C>);
+// ExpressionCall.make(Identifier.make("f"), arguments)
+
+
+multi-value expression:
+
+multi(A, B, C)
+
+// List<Expression> arguments = new ArrayList<>();
+// arguments.add(<A>);
+// arguments.add(<B>);
+// arguments.add(<C>);
+// ExpressionMulti.make(arguments)
+
+// 'mv' is like a special built-in function;
+// a multi-value expression is a bit like a tuple,
+// but it may only appear in certain contexts in ACL2
+
+
+component expression:
+
+A.2
+
+// ExpressionComponent.make(<A>, 2)
+// note that 2 is just a Java int, not a Syntheto expression
+
+// only applicable if A is a multi-value expression;
+// returns indexed component (0-based)
+
+
+bind expression with one variable:
+
+let x:integer = A;
+B // <- there must be always an expression following a let
+
+// List<TypedVariable> vars = new ArrayList<>();
+// vars.add(TypedVariable.make(Identifier.make("x"), TypeInteger.make());
+// ExpressionBind.make(vars, <A>, <B>)
+
+// a single-variable let is for when A is single-valued
+
+
+bind expression with multiple variables:
+
+let y:string, z:boolean = A;
+B // <- there must be always an expression following a let
+
+// List<TypedVariable> vars = new ArrayList<>();
+// vars.add(TypedVariable.make(Identifier.make("y"), TypeString.make()));
+// vars.add(TypedVariable.make(Identifier.make("z"), TypeCharacter.make()));
+// ExpressionBind.make(vars, <A>, <B>)
+
+// a multi-variable let is for when A is multi-valued:
+// each variable is assigned a component of the tuple
+
+
+product construction expression:
+
+// assuming we have a type
+struct S {
+  a: integer, // field of primitive type
+  b: T // field of some other defined type T
+  // could have invariant
+}
+// we construct a value of type S
+// by specifying expressions for all the fields
+S { a = A, b = B}
+
+// List<Initializer> inits = new ArrayList<>;
+// inits.add(Initializer.make(Identifier.make("a"), <A>));
+// inits.add(Initializer.make(Identifier.make("b"), <B>));
+// ExpressionProductConstruct(Identifier.make("S"), inits)
+
+
+product field expression:
+
+SVAL.a // retrieve field a of a value of type S above
+
+// ExpressionProductField(<SVAL>, Identifier.make("a"))
+
+
+product update expression:
+
+SVAL { a = AA } // change the a field of a value of type S
+
+// List<Initializer> inits = new ArrayList<>;
+// inits.add(Initializer.make(Identifier.make("a"), <AA>);
+// ExpressionProuctUpdate(<SVAL>, inits)
+
+// this is not a destructive update: it returns a new value of type S,
+// which is just like the old one except for some fields having different values
+
+
+sum construction expression:
+
+// assuming we have a type
+variant V {
+  a: { a1: integer, a2: string },
+  b: {}
+  c: {c0: T}
+}
+// we construct values of type V
+// by specifying the alternative and the fields for the alternative
+V.a { a1 = X, a2 = Y }
+V.b {} // no fields
+V.c { c0 = TVAL }
+
+// List<Initializer> inits = new ArrayList<>;
+// inits.add(Initializer.make(Identifier.make("a1"), <X>));
+// inits.add(Initializer.make(Identifier.make("a2"), <Y>));
+// ExpressionSumConstruct.make(Identifier.make("V"), Identifier.make("a"), inits)
+// inits = new ArrayList<>;
+// ExpressionSumConstruct.make(Identifier.make("V"), Identifier.make("b"), inits)
+// inits.add(Initializer.make(Identifier.make("c1"), <TVAL>));
+// ExpressionSumConstruct.make(Identifier.make("V"), Identifier.make("c"), inits)
+
+// very similar to product construction expressions,
+// but we also have to specify an alternative
+
+
+sum field expression:
+
+VVAL.a.a1 // retrieve field a1 of value VVAL of alternative a of type V
+
+// ExpressionSumField.make(<VVAL>, Identifier.make("a"), Identifier.make("a1"))
+
+// VVAL must be a value of alternative a (not b, not c) for this to work,
+// i.e. for ACL2's proof obligation to be provable
+
+// very similar to product field expression,
+// but we also have to specify an alternative
+
+
+sum update expression:
+
+VVAL.a { a2 = Z } // change field a2 of value VVAL of alternative a of type V
+
+// List<Initializer> inits = new ArrayList<>;
+// inits.add(Initializer.make(Identifier.make("a2"), <Z>));
+// ExpressionSumUpdate.make(<VVAL>, Identifier.make("a"), inits)
+
+
+sum test expression:
+
+VVAL.c? // tests whether a value VVAL of type V is of alternative c
+
+// ExpressionSumTest.make(<VVAL>, Identifier.make("c") // note no '?'
+
+
+Theorems
+--------
+
+theorem mythm // it's not provable, but it doesn't matter here
+  forall (x:integer, y:integer) x < y
+
+// Expression formula = /* code to make x < y */
+// List<TypedVariable> vars = new ArrayList<>();
+// vars.add(TypedVariable.make(Identifier.make("x"), TypeInteger.make()));
+// vars.add(TypedVariable.make(Identifier.make("y"), TypeInteger.make()));
+// Theorem thm =
+//   Theorem.make(Identifier.make("mythm"), vars, formula);
+
+
+Function Definitions
+--------------------
+
+function f (x:integer)
+returns (y:integer)
+assumes x > 0
+ensures y > 0 {
+  E // some expression here (may be complex, with let's etc.)
+}
+
+// List<TypedVariable> inputs = new ArrayList<>();
+// inputs.add(TypedVariable.make(Identifier.make("x"), TypeInteger.make()));
+// List<TypedVariable> outputs = new ArrayList<>();
+// outputs.add(TypedVariable.make(Identifier.make("y"), TypeInteger.make()));
+// FunctionHeader header =
+//   FunctionHeader.make(Identifier.make("f"), inputs, outputs);
+// Expression precondition = /* code to make x > 0 */
+// Expression postcondition = /* code to make y > 0 */
+// Expression body = /* code to make E */
+// FunctionDefiner definer = FunctionDefinerRegular.make(body);
+// FunctionDefinition fundef =
+//   FuntionDefinition.make(header, precondition, postcondition, definer);
+//   // use null for precondition and/or postcondition when absent

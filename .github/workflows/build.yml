@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: gradlebuild
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches:
+      -  master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: JDK8
+      uses: joschi/setup-jdk@v2
+      with:
+        java-version: '8'
+    - name: Build with Gradle
+      working-directory: syntheto-xtext
+      run: chmod +x ./gradlew && ./gradlew updateversion  && ./gradlew vscodeextension 

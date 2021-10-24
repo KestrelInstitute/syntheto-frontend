@@ -1,0 +1,29 @@
+@startuml
+
+class FunctionHeader {
+  name : identifier
+}
+FunctionHeader o-- "0..*" TypedVariable : inputs
+FunctionHeader o-- "1..*" TypedVariable : outputs
+
+class TypedVariable {
+  name : identifier
+}
+TypedVariable o-- "1" Type
+
+FunctionDefinition o-- "1" FunctionHeader
+FunctionDefinition o-- "1" Expression : body
+
+FunctionRecursion o-- "1..*" FunctionDefinition
+
+class FunctionSpecification {
+  name : identifier
+  quantifier : {universal, existential, none}
+}
+FunctionSpecification o-- "1..*" FunctionHeader : functions
+FunctionSpecification o-- "0..*" TypedVariable : bound_variables
+FunctionSpecification o-- "1" Expression : body
+
+abstract class Expression
+
+@enduml

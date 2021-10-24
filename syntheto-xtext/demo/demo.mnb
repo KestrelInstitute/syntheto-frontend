@@ -1,0 +1,20 @@
+{
+  "cells": [
+    {
+      "kind": 2,
+      "language": "syntheto",
+      "value": "function factorial(x:int) returns (a:int)\n         ensures a >= 0 {\n  if(x <= 0) {\n    return 1;\n  }\n  else {\n    return x * factorial(x - 1);\n  }\n}\n",
+      "editable": true,
+      "outputMime": "text/plain",
+      "outputData": "Function success: factorial\n"
+    },
+    {
+      "kind": 2,
+      "language": "syntheto",
+      "value": "function factorial_t =\n  transform factorial \n    by tail_recursion {new_parameter_name = r}\n",
+      "editable": true,
+      "outputMime": "text/plain",
+      "outputData": "Function success: factorial\nTransformation success; top levels:\nfunction factorial_t(x:int,r:int) returns (a:int) { \nif((x<=0)) { \nr;\n} else {\nfactorial_t((-1+x),(r*x));\n} \n} \n"
+    }
+  ]
+}

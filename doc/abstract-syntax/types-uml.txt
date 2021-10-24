@@ -1,0 +1,64 @@
+@startuml
+
+abstract class Type
+
+abstract class PrimitiveType extends Type
+PrimitiveType <|-- BooleanType
+PrimitiveType <|-- CharacterType
+PrimitiveType <|-- StringType
+PrimitiveType <|-- IntegerType
+
+abstract class CollectionType extends Type
+
+class SetType extends CollectionType
+SetType o-- "1" Type : element
+
+class SequenceType extends CollectionType
+SequenceType o-- "1" Type : element
+
+class MapType extends CollectionType
+MapType o-- "1" Type : domain
+MapType o-- "1" Type : range
+
+class OptionType extends Type
+OptionType o-- "1" Type : base
+
+class DefinedType extends Type {
+  name : identifier
+}
+
+abstract class TypeDefinition
+
+class Field {
+  name : identifier
+}
+Field o-- "1" Type
+
+class ProductTypeDefinition extends TypeDefinition {
+  name : identifier
+}
+ProductTypeDefinition o-- "0..*" Field
+ProductTypeDefinition o-- "0..1" Expression :invariant
+
+class Alternative {
+  name :identifier
+}
+Alternative o-- "0..*" Field
+Alternative o-- "0..1" Expression :invariant
+
+class SumTypeDefinition extends TypeDefinition {
+  name : identifier
+}
+SumTypeDefinition o-- "1..*" Alternative
+
+class SubTypeDefinition extends TypeDefinition {
+  name : identifier
+}
+SubTypeDefinition o-- "1" Type : supertype
+SubTypeDefinition o-- "1" Expression : restriction
+
+TypeRecursion o-- "1..*" TypeDefinition
+
+abstract class Expression
+
+@enduml

@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Mon Jun 28 12:32:27 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }}%use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }}%use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 28,2021 12:32</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Tue Jun 29 14:01:05 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }}%use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }}%use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }}%use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 14:01</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 29,2021 18:21</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Thu Jul 01 07:29:58 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:29</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Thu Jul 01 07:40:35 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:40</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Thu Jul 01 07:48:31 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:48</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Thu Jul 01 07:51:41 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jul 01,2021 07:51</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ if((x&gt;=0)) { x;} else { -x;} } </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Wed Aug 18 12:39:55 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>constructing  visitor for 0_abs.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>Starting to Process 0_abs.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} %use acl2 @ 127.0.0.1:55445 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  function abs(x:int) returns (a:int)         ensures a &gt;= 0 {  if(x &gt;= 0) {    return x;  }  else {    return -x;  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   a &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   a file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@ensures/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting    if(x &gt;= 0) {    return x;  }  else {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting      return x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   {    return -x;  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting      return -x; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting   -x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>visiting  x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/0_abs.synth#//@contents.0/@expr/@elseexpr/@elseexpr/@expr/@operand</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>Log of execution://src_gen/0_abs.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Aug 18,2021 12:39</td>
+	<td>function abs(x:int) returns (a:int) ensures (a&gt;=0){ 
+if((x&gt;=0)) { 
+x;
+} else {
+-x;
+} 
+} </td>
+</tr>
+</table>
+</body>
+</html>
