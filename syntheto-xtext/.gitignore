@@ -1,0 +1,10 @@
+.idea/
+edu.vanderbilt.isis.midas.syntheto/json-20200518.jar
+syntheto-absynt/.classpath
+syntheto-absynt/.idea/gradle.xml
+syntheto-absynt/.project
+node_modules/
+package-lock.json
+syntheto.vscode/node_modules/
+syntheto.vscode/out/
+syntheto.vscode/package-lock.json

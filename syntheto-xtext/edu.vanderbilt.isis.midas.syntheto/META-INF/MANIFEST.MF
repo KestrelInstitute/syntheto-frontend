@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: edu.vanderbilt.isis.midas.syntheto
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.vanderbilt.isis.midas.syntheto
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edu.vanderbilt.isis.midas.syntheto; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.xtend.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: edu.vanderbilt.isis.midas.syntheto.util,
+ edu.vanderbilt.isis.midas.parser.antlr.internal,
+ edu.vanderbilt.isis.midas.parser.antlr,
+ edu.vanderbilt.isis.midas.generator,
+ edu.vanderbilt.isis.midas.syntheto.impl,
+ edu.vanderbilt.isis.midas.validation,
+ edu.vanderbilt.isis.midas.scoping,
+ edu.vanderbilt.isis.midas.services,
+ edu.vanderbilt.isis.midas.serializer,
+ edu.vanderbilt.isis.midas,
+ edu.vanderbilt.isis.midas.syntheto,
+ edu.vanderbilt.isis.midas.formatting2
+Import-Package: org.apache.log4j
+Bundle-ClassPath: json-20200518.jar,
+ .

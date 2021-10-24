@@ -1,0 +1,251 @@
+grammar edu.vanderbilt.isis.midas.Syntheto with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate syntheto "http://www.vanderbilt.edu/isis/midas/Syntheto"
+
+Program returns Program:
+//	importDecls+=Import*
+	(contents+=TopLevelConstruct)* (commands+=Pragmadirectives)*;
+	//
+//Import:
+//	'import' (importedNamespace=ImportedFQN) (';')?;
+//
+//ImportedFQN:
+//	QualifiedName ('.' '*')?;
+//
+//QualifiedName:
+//	ID ('.' ID)*;
+
+TopLevelConstruct:
+	TypeDefinition | FunctionDefinition | FunctionSpecfication | Theorem |TransformDefinition;
+
+TypeDefinition:
+	SumTypeDefinition | ProductTypeDefinition | SubTypeDefinition;
+
+Pragmadirectives:
+	'%' (BridgeConnectionDirective | ProcessModelDirective) (';')?;
+
+BridgeConnectionDirective:
+	'use' 'acl2' ('host' | '@') host=Ipaddress ('port' | ':') port=INT;
+
+Ipaddress hidden():
+	(first=INT '.' second=INT '.' third=INT '.' fourth=INT);
+
+ProcessModelDirective:
+	check?=('check');
+
+PrimitiveType:
+	boolean?=('bool') | char?=('char') | int?=('int') | string?='string';
+
+TypeElement returns TypeElement:
+	Option;
+
+Option returns TypeElement:
+	Sequence | {Option} ('opt' '<' element=TypeElement '>');
+
+Sequence returns TypeElement:
+	Set | {Sequence} ('seq' '<' element=TypeElement '>');
+
+Set returns TypeElement:
+	Map | {Set} ('set' '<' element=TypeElement '>');
+
+Map returns TypeElement:
+	PrimaryTypeElement | {Map} ('map' '<' domain=TypeElement ',' range=TypeElement '>');
+
+PrimaryTypeElement returns TypeElement:
+	{PrimaryTypeElement} (primary=PrimitiveType | typeref=[TypeDefinition]);
+
+ProductTypeDefinition:
+	{ProductTypeDefinition} (struct?='struct')? productID=ID ('{' element+=TypedVariable (',' element+=TypedVariable)*
+	('|' invariant=Expression)? '}')?;
+
+TypedVariable:
+	name=ID ':' type=TypeElement;
+
+	//ChildElement:
+//	{ChildElement} tag=TypedVariable;
+
+Alternative:
+	{Alternative} (product=ProductTypeDefinition);
+
+SumTypeDefinition:
+	'variant' name=ID '{' alternatives+=ProductTypeDefinition (',' alternatives+=ProductTypeDefinition)* '}';
+
+SubTypeDefinition:
+	{SubTypeDefinition} 'subtype' name=ID '{' element=TypedVariable '|' invariant=Expression '}';
+
+FunctionSpecfication:
+	('specification') name=ID '(' 'function' funcName=ID '(' (param+=Param (',' param+=Param)*)? ')' ('returns' '('
+	returnlist+=Param (',' returnlist+=Param)* ')')? ')' '{' expr=BlockStatement '}';
+
+Theorem:
+	'theorem' name=ID (('forall') '(' foralltag+=TypedVariable (',' foralltag+=TypedVariable)* ')')? ('|')?
+	expression=Expression;
+
+FunctionDefinition:
+	('function') name=ID '(' (param+=Param (',' param+=Param)*)? ')' 
+	('assumes' assumes=Expression)? ('returns' '('
+	returnlist+=Param (',' returnlist+=Param)* ')')? (('ensures' ensures=Expression)?) ('measure' measure=Expression)?
+	('{' ((expr=BlockStatement)) '}');
+
+TransformDefinition:
+	('function') name=ID '=' 'transform' transformed_fn=[TransformableType] 'by' transformation=transformation_type;
+
+TransformableType:
+	FunctionDefinition | TransformDefinition
+;
+
+transformation_type:
+	tail_recursion | remove_cdring | flatten_param | isomorphism |  finite_difference | drop_irrelevant_param
+	| wrap_output | rename_param |  simplify;
+
+finite_difference:
+	'finite_difference' '{' 'expression' '=' expression=Expression ',' 'new_parameter_name' '=' new_parameter_name=ID ','
+	'simplify' '=' simplify=BooleanLiteral '}';
+
+flatten_param:
+	'flatten_param' '{' 'old' '=' old=ID ',' 'new' '=' '[' newlist+=ID ',' (newlist+=ID)+ ']' '}';
+
+wrap_output:
+	'wrap_output' '{' 'wrap_function' '=' identifier=ID '}';
+
+drop_irrelevant_param:
+	'drop_irrelevant_param' '{' 'param' '=' identifier=ID '}';
+
+tail_recursion:
+	'tail_recursion' '{' 'new_parameter_name' '=' identifier=ID '}';
+
+isomorphism:
+	'isomorphism' '{' 'parameter' '=' parameter=ID ',' 'new_parameter_name' '=' new_parameter_name=ID ',' 'old_type' '='
+	old_type=ID ',' 'new_type' '=' new_type=ID ',' 'old_to_new' '=' old_to_new=ID ',' 'new_to_old' '=' new_to_old=ID ','
+	'simplify' '=' simplify=BooleanLiteral '}';
+
+rename_param:
+	'rename_param' '{' 'old' '=' old=ID ',' 'new' '=' new=ID '}';
+
+simplify:
+	{simplify}'simplify';
+
+remove_cdring:
+	'remove_cdring' '{' 'simplify' '=' simplify=BooleanLiteral '}';
+
+Param:
+	tag=TypedVariable;
+
+	//(return?='return')? expression=Expression |
+BlockStatement:
+	LetExpression | IfExpression | WhenExpression | UnlessExpression | CondExpression | BlockExpression;
+
+BlockExpression:
+	(isreturn?='return')? expr=Expression ';';
+
+CondExpression:
+	'cond' '{' branches+=CondBranches+ '}';
+
+CondBranches:
+	test=Expression '{' thenexpr=BlockStatement '}';
+
+LetExpression:
+	('let' (vars+=TypedVariable (',' vars+=TypedVariable)*) '=' first=BlockStatement second=BlockStatement);
+
+WhenExpression:
+	'when' '(' test=Expression ')' '{' thenexpr=BlockStatement '}' elseexpr=Elseexpr;
+
+UnlessExpression:
+	'unless' '(' test=Expression ')' '{' thenexpr=BlockStatement '}' elseexpr=Elseexpr;
+
+IfExpression:
+	{IfExpression} 'if' '(' test=Expression ')' (('{' (thenexpr=BlockStatement) '}')) ('else' elseexpr=Elseexpr);
+
+Elseexpr:
+	{Elseexpr} '{' (elseexpr=BlockStatement) '}';
+
+Expression returns Expression:
+	Implies_expr;
+
+Implies_expr returns Expression:
+	Or_expr ({Implies_expr.left=current} (implies?='==>' | implied?='<==' | iff?='<=>') right=Or_expr)*;
+
+Or_expr returns Expression:
+	And_expr ({Or_expr.left=current} '||' right=And_expr)*;
+
+And_expr returns Expression:
+	Compare_expr ({And_expr.left=current} '&&' right=Compare_expr)*;
+
+Compare_expr returns Expression:
+	Math_expr ({Compare_expr.left=current} (geq?='>=' | leq?='<=' | eq?='==' | neq?='!=' | gt?='>' | lt?='<')
+	right=Math_expr)*;
+
+Math_expr returns Expression:
+	Multiplication (({Plus.left=current} '+' | {Minus.left=current} '-') right=Multiplication)*;
+
+Multiplication returns Expression:
+	Unary_expr (({Multi.left=current} '*' | {Div.left=current} '/' | {Modulo.left=current} '%') right=Unary_expr)*;
+
+	//AssignmentOperation returns Expression:
+//	Unary_expr (({assign.left=current} '=') right=Unary_expr)*;
+Unary_expr returns Expression:
+	PrimaryExpression | {Unary_expr} op=OpUnary operand=Unary_expr;
+
+OpUnary:
+	not?="!" | negation?="-";
+
+PrimaryExpression returns Expression:
+	'(' Expression ')' | {LiteralValue} value=Literal | {FunctionCall} func=[FunctionDefinition] ('(' (args+=Expression
+	(',' args+=Expression)*)? ')') | {VariableAssignment} (variable=ElementTagQualifier);
+
+ElementTagQualifier returns ElementTagQualifier hidden():
+	child=[Subelement] (({ElementTagQualifier.left=current} '.') (subelement=[Subelement]))*;
+
+Subelement:
+	ProductTypeDefinition | TypedVariable | SumTypeDefinition;
+
+Literal:
+//| SeqLiteral | MapLiteral 
+	BooleanLiteral | NumberLiteral | StringLiteral | ProductLiteral |
+	SingleValueBuiltins | TwoValueBuiltins ;
+
+TwoValueBuiltins:
+	{TwoValueBuiltins} builtin=('member' | 'remove_first' | 'add' | 'append') '('
+	operand =Expression ','element =Expression ')';
+
+SingleValueBuiltins:
+	builtin=('length' | 'is_empty' | 'first' | 'rest' | 'last') '(' element=Expression ')' | empty?='empty' ('(' ')')? ;
+
+BooleanLiteral:
+	{BooleanLiteral} ('false' | isTrue?='true');
+
+NumberLiteral:
+	{NumberLiteral} value=INT;
+
+StringLiteral:
+	{StringLiteral} value=STRING;
+
+	//Number hidden():
+//	(INT);
+
+//terminal INT returns ecore::EInt:
+//	'0'..'9' ('0'..'9' | '_')*; 
+//terminal DECIMAL returns ecore::EBigDecimal:
+//	('0'..'9')* ('.' ('0'..'9')+)?; 
+
+//	
+//SetLiteral:
+//	{SetLiteral} '{' (elements+=Expression (',' elements+=Expression)*) '}';
+ProductLiteral:
+	{ProductLiteral} (product=[ProductTypeDefinition]) '(' assignment+=ProductAssignment (','
+	assignment+=ProductAssignment)* ')';
+
+ProductAssignment:
+	left=[TypedVariable] '=' right=Expression;
+
+SeqLiteral:
+	{SeqLiteral} '[' (elements+=Expression (',' elements+=Expression)*) ']';
+//
+//MapLiteral:
+//	{MapLiteral} '[' (elements+=MapElement (',' elements+=MapElement)*) ']';
+//
+//MapElement:
+//	{MapElement} {MapElement.key=current} '->' value=Expression;
+
+	 

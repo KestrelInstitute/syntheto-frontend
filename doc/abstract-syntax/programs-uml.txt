@@ -1,0 +1,12 @@
+@startuml
+
+Program o-- "0..*" TopLevelConstruct
+
+abstract class TopLevelConstruct
+TopLevelConstruct <|-- TypeDefinition
+TopLevelConstruct <|-- TypeRecursion
+TopLevelConstruct <|-- FunctionDefinition
+TopLevelConstruct <|-- FunctionRecursion
+TopLevelConstruct <|-- FunctionSpecification
+
+@enduml

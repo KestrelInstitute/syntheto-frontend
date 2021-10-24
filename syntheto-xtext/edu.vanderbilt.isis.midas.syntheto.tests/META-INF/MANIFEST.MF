@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: edu.vanderbilt.isis.midas.syntheto.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.vanderbilt.isis.midas.syntheto.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edu.vanderbilt.isis.midas.syntheto.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: edu.vanderbilt.isis.midas.syntheto,
+ org.junit.jupiter.api;bundle-version="[5.0.0,6.0.0)",
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ com.google.guava,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: edu.vanderbilt.isis.midas.tests;x-internal=true

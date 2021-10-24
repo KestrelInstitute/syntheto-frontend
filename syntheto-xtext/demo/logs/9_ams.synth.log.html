@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Fri Jun 25 21:27:40 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>constructing  visitor for 9_ams.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>Starting to Process 9_ams.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  struct acid {  id:int // Aircraft identification number (i.e. Bureau Number).  | id &gt; 0}struct missionid {  id:int  | id &gt; 0}subtype months {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 12}subtype years {  x:int| x &gt;= 2019 &amp;&amp; x &lt;= 2021}subtype dayofmonth {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 31}subtype hours {  x:int| x &gt;= 0 &amp;&amp; x &lt; 24}subtype minutes {  x:int| x &gt;= 0 &amp;&amp; x &lt; 60}function days_in_month(month:months, year:years) returns (day:dayofmonth) {  if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  }}struct calendar_datetime {  month:months,  year:years,  day:dayofmonth,  hour:hours,  minute:minutes  | day &lt;= days_in_month(month,year)}variant actype {  f_22 {    built:calendar_datetime,    manufacturer:string  }  , f_18 {    built:calendar_datetime,    manufacturer:string  }  ,  a_330 {    built:calendar_datetime,    manufacturer:string  }  ,  b_787 {    built:calendar_datetime,    manufacturer:string  }}/* Information about an aircraft. */struct aircraft {   id:acid,  type:actype,  min_maintenance_time:minutes}struct missionspecs {// a mission requires one or more aircraft types  id:missionid,  aircrafts:set&lt;actype&gt;,  start:calendar_datetime,  end:calendar_datetime,  pittime:minutes}struct mission_roster {  mission:missionspecs,  schedule:map&lt;calendar_datetime,set&lt;aircraft&gt;&gt;}specification schedule(function calculate_mission_rosters(specs:set&lt;missionspecs&gt;, aircraftsused:set&lt;aircraft&gt;) returns (output:seq&lt;mission_roster&gt;)) {  true;}function find_aircraft(allaircrafts:set&lt;aircraft&gt;, id:acid) returns (selection:aircraft) {  empty(allaircrafts);} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  struct acid {  id:int // Aircraft identification number (i.e. Bureau Number).  | id &gt; 0} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   id &gt; 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   id file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  struct missionid {  id:int  | id &gt; 0} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   id &gt; 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   id file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  subtype months {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 12} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 1 &amp;&amp; x &lt;= 12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &lt;= 12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  subtype years {  x:int| x &gt;= 2019 &amp;&amp; x &lt;= 2021} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 2019 &amp;&amp; x &lt;= 2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &lt;= 2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  subtype dayofmonth {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 31} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 1 &amp;&amp; x &lt;= 31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &lt;= 31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  subtype hours {  x:int| x &gt;= 0 &amp;&amp; x &lt; 24} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 0 &amp;&amp; x &lt; 24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &lt; 24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  subtype minutes {  x:int| x &gt;= 0 &amp;&amp; x &lt; 60} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 0 &amp;&amp; x &lt; 60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x &lt; 60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  function days_in_month(month:months, year:years) returns (day:dayofmonth) {  if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  months file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  years file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  dayofmonth file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 || month ==3 || month ==5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 || month ==3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month ==3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month ==5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting           month ==7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting           month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month ==8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month==10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month==12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting      return 31; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting      if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month==2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting        if(year%4==0) {        return 29;      }      else {        return 28;      } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  year%4==0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  year%4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  year file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting          return 29; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   29 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   29 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   {        return 28;      } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting          return 28; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   28 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   28 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   {      return 30;    } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting        return 30; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   30 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   30 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  struct calendar_datetime {  month:months,  year:years,  day:dayofmonth,  hour:hours,  minute:minutes  | day &lt;= days_in_month(month,year)} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  months file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  years file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  dayofmonth file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  hours file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.3/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.4/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   day &lt;= days_in_month(month,year) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   day file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   days_in_month(month,year) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right/@args.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  year file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right/@args.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  variant actype {  f_22 {    built:calendar_datetime,    manufacturer:string  }  , f_18 {    built:calendar_datetime,    manufacturer:string  }  ,  a_330 {    built:calendar_datetime,    manufacturer:string  }  ,  b_787 {    built:calendar_datetime,    manufacturer:string  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    f_22 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting   f_18 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    a_330 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    b_787 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  /* Information about an aircraft. */struct aircraft {   id:acid,  type:actype,  min_maintenance_time:minutes} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  acid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  actype file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  struct missionspecs {// a mission requires one or more aircraft types  id:missionid,  aircrafts:set&lt;actype&gt;,  start:calendar_datetime,  end:calendar_datetime,  pittime:minutes} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  missionid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;actype&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;actype&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  actype file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.3/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.4/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  struct mission_roster {  mission:missionspecs,  schedule:map&lt;calendar_datetime,set&lt;aircraft&gt;&gt;} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  missionspecs file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  map&lt;calendar_datetime,set&lt;aircraft&gt;&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  map&lt;calendar_datetime,set&lt;aircraft&gt;&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@domain</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  specification schedule(function calculate_mission_rosters(specs:set&lt;missionspecs&gt;, aircraftsused:set&lt;aircraft&gt;) returns (output:seq&lt;mission_roster&gt;)) {  true;} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;missionspecs&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;missionspecs&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  missionspecs file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  seq&lt;mission_roster&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  seq&lt;mission_roster&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  mission_roster file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    true; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    true file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    true file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  function find_aircraft(allaircrafts:set&lt;aircraft&gt;, id:acid) returns (selection:aircraft) {  empty(allaircrafts);} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  acid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    empty(allaircrafts); file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  allaircrafts file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  allaircrafts file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value/@element/@variable</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>Already visited  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>Log of execution://src_gen/9_ams.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>struct acid { id : int | (id&gt;0)} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>struct missionid { id : int | (id&gt;0)} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>subtype months { x:int | ((x&gt;=1)&amp;&amp;(x&lt;=12))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>subtype years { x:int | ((x&gt;=2019)&amp;&amp;(x&lt;=2021))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>subtype dayofmonth { x:int | ((x&gt;=1)&amp;&amp;(x&lt;=31))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>subtype hours { x:int | ((x&gt;=0)&amp;&amp;(x&lt;24))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>subtype minutes { x:int | ((x&gt;=0)&amp;&amp;(x&lt;60))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>function days_in_month(month:months,year:years) returns (day:dayofmonth) { if((((((((month==1)||(month==3))||(month==5))||(month==7))||(month==8))||(month==10))||(month==12))) { 31;} else { if((month==2)) { if(((year%4)==0)) { 29;} else { 28;} } else { 30;} } } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>struct calendar_datetime { month : months, year : years, day : dayofmonth, hour : hours, minute : minutes | (day&lt;=days_in_month(month,year))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>actype { f_22built : calendar_datetime, manufacturer : string | f_18built : calendar_datetime, manufacturer : string | a_330built : calendar_datetime, manufacturer : string | b_787built : calendar_datetime, manufacturer : string | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>struct aircraft { id : acid, type : actype, min_maintenance_time : minutes | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>struct missionspecs { id : missionid, aircrafts : actype, start : calendar_datetime, end : calendar_datetime, pittime : minutes | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>struct mission_roster { mission : missionspecs, schedule :  | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>specification schedule
+(function calculate_mission_rosters (specs:missionspecs,aircraftsused:aircraft) returns (output:seq&lt;mission_roster&gt;) ) {
+true;
+}</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:27</td>
+	<td>function find_aircraft(allaircrafts:aircraft,id:acid) returns (selection:aircraft) { empty(allaircrafts);} </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Fri Jun 25 21:31:39 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>constructing  visitor for 9_ams.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>Starting to Process 9_ams.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  struct acid {  id:int // Aircraft identification number (i.e. Bureau Number).  | id &gt; 0}struct missionid {  id:int  | id &gt; 0}subtype months {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 12}subtype years {  x:int| x &gt;= 2019 &amp;&amp; x &lt;= 2021}subtype dayofmonth {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 31}subtype hours {  x:int| x &gt;= 0 &amp;&amp; x &lt; 24}subtype minutes {  x:int| x &gt;= 0 &amp;&amp; x &lt; 60}function days_in_month(month:months, year:years) returns (day:dayofmonth) {  if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  }}struct calendar_datetime {  month:months,  year:years,  day:dayofmonth,  hour:hours,  minute:minutes  | day &lt;= days_in_month(month,year)}variant actype {  f_22 {    built:calendar_datetime,    manufacturer:string  }  , f_18 {    built:calendar_datetime,    manufacturer:string  }  ,  a_330 {    built:calendar_datetime,    manufacturer:string  }  ,  b_787 {    built:calendar_datetime,    manufacturer:string  }}/* Information about an aircraft. */struct aircraft {   id:acid,  type:actype,  min_maintenance_time:minutes}struct missionspecs {// a mission requires one or more aircraft types  id:missionid,  aircrafts:set&lt;actype&gt;,  start:calendar_datetime,  end:calendar_datetime,  pittime:minutes}struct mission_roster {  mission:missionspecs,  schedule:map&lt;calendar_datetime,set&lt;aircraft&gt;&gt;}specification schedule(function calculate_mission_rosters(specs:set&lt;missionspecs&gt;, aircraftsused:set&lt;aircraft&gt;) returns (output:seq&lt;mission_roster&gt;)) {  true;}function find_aircraft(allaircrafts:set&lt;aircraft&gt;, id:acid) returns (selection:aircraft) {  empty(allaircrafts);} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  struct acid {  id:int // Aircraft identification number (i.e. Bureau Number).  | id &gt; 0} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   id &gt; 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   id file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  struct missionid {  id:int  | id &gt; 0} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   id &gt; 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   id file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  subtype months {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 12} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 1 &amp;&amp; x &lt;= 12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &lt;= 12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  subtype years {  x:int| x &gt;= 2019 &amp;&amp; x &lt;= 2021} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 2019 &amp;&amp; x &lt;= 2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &lt;= 2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  subtype dayofmonth {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 31} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 1 &amp;&amp; x &lt;= 31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &lt;= 31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  subtype hours {  x:int| x &gt;= 0 &amp;&amp; x &lt; 24} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 0 &amp;&amp; x &lt; 24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &lt; 24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  subtype minutes {  x:int| x &gt;= 0 &amp;&amp; x &lt; 60} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 0 &amp;&amp; x &lt; 60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x &lt; 60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  function days_in_month(month:months, year:years) returns (day:dayofmonth) {  if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  months file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  years file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  dayofmonth file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 || month ==3 || month ==5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 || month ==3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month ==3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month ==5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting           month ==7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting           month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month ==8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month==10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month==12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting      return 31; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting      if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month==2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting        if(year%4==0) {        return 29;      }      else {        return 28;      } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  year%4==0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  year%4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  year file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting          return 29; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   29 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   29 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   {        return 28;      } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting          return 28; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   28 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   28 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   {      return 30;    } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting        return 30; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   30 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   30 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  struct calendar_datetime {  month:months,  year:years,  day:dayofmonth,  hour:hours,  minute:minutes  | day &lt;= days_in_month(month,year)} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  months file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  years file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  dayofmonth file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  hours file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.3/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.4/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   day &lt;= days_in_month(month,year) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   day file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   days_in_month(month,year) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right/@args.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  year file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right/@args.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  variant actype {  f_22 {    built:calendar_datetime,    manufacturer:string  }  , f_18 {    built:calendar_datetime,    manufacturer:string  }  ,  a_330 {    built:calendar_datetime,    manufacturer:string  }  ,  b_787 {    built:calendar_datetime,    manufacturer:string  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    f_22 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting   f_18 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    a_330 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    b_787 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  /* Information about an aircraft. */struct aircraft {   id:acid,  type:actype,  min_maintenance_time:minutes} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  acid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  actype file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  struct missionspecs {// a mission requires one or more aircraft types  id:missionid,  aircrafts:set&lt;actype&gt;,  start:calendar_datetime,  end:calendar_datetime,  pittime:minutes} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  missionid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;actype&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;actype&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  actype file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.3/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.4/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  struct mission_roster {  mission:missionspecs,  schedule:map&lt;calendar_datetime,set&lt;aircraft&gt;&gt;} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  missionspecs file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  map&lt;calendar_datetime,set&lt;aircraft&gt;&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  map&lt;calendar_datetime,set&lt;aircraft&gt;&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@domain</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  specification schedule(function calculate_mission_rosters(specs:set&lt;missionspecs&gt;, aircraftsused:set&lt;aircraft&gt;) returns (output:seq&lt;mission_roster&gt;)) {  true;} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;missionspecs&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;missionspecs&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  missionspecs file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  seq&lt;mission_roster&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  seq&lt;mission_roster&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  mission_roster file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    true; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    true file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    true file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  function find_aircraft(allaircrafts:set&lt;aircraft&gt;, id:acid) returns (selection:aircraft) {  empty(allaircrafts);} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  acid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    empty(allaircrafts); file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  allaircrafts file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  allaircrafts file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value/@element/@variable</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>Already visited  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>Log of execution://src_gen/9_ams.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>struct acid { id : int | (id&gt;0)} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>struct missionid { id : int | (id&gt;0)} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>subtype months { x:int | ((x&gt;=1)&amp;&amp;(x&lt;=12))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>subtype years { x:int | ((x&gt;=2019)&amp;&amp;(x&lt;=2021))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>subtype dayofmonth { x:int | ((x&gt;=1)&amp;&amp;(x&lt;=31))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>subtype hours { x:int | ((x&gt;=0)&amp;&amp;(x&lt;24))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>subtype minutes { x:int | ((x&gt;=0)&amp;&amp;(x&lt;60))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>function days_in_month(month:months,year:years) returns (day:dayofmonth) { if((((((((month==1)||(month==3))||(month==5))||(month==7))||(month==8))||(month==10))||(month==12))) { 31;} else { if((month==2)) { if(((year%4)==0)) { 29;} else { 28;} } else { 30;} } } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>struct calendar_datetime { month : months, year : years, day : dayofmonth, hour : hours, minute : minutes | (day&lt;=days_in_month(month,year))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>actype { f_22built : calendar_datetime, manufacturer : string | f_18built : calendar_datetime, manufacturer : string | a_330built : calendar_datetime, manufacturer : string | b_787built : calendar_datetime, manufacturer : string | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>struct aircraft { id : acid, type : actype, min_maintenance_time : minutes | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>struct missionspecs { id : missionid, aircrafts : actype, start : calendar_datetime, end : calendar_datetime, pittime : minutes | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>struct mission_roster { mission : missionspecs, schedule :  | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>specification schedule
+(function calculate_mission_rosters (specs:missionspecs,aircraftsused:aircraft) returns (output:seq&lt;mission_roster&gt;) ) {
+true;
+}</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:31</td>
+	<td>function find_aircraft(allaircrafts:aircraft,id:acid) returns (selection:aircraft) { empty(allaircrafts);} </td>
+</tr>
+</table>
+</body>
+</html><!DOCTYPE html>
+<head>
+<style>
+table { width: 100% }
+th { font:bold 10pt Tahoma; }
+td { font:normal 10pt Tahoma; }
+h1 {font:normal 11pt Tahoma;}
+</style>
+</head>
+<body>
+<h1>Fri Jun 25 21:49:29 CDT 2021</h1>
+<table border="0" cellpadding="5" cellspacing="3">
+<tr align="left">
+	<th style="width:10%">Loglevel</th>
+	<th style="width:15%">Time</th>
+	<th style="width:75%">Log Message</th>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>constructing  visitor for 9_ams.synth</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>Starting to Process 9_ams.synth</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  struct acid {  id:int // Aircraft identification number (i.e. Bureau Number).  | id &gt; 0}struct missionid {  id:int  | id &gt; 0}subtype months {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 12}subtype years {  x:int| x &gt;= 2019 &amp;&amp; x &lt;= 2021}subtype dayofmonth {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 31}subtype hours {  x:int| x &gt;= 0 &amp;&amp; x &lt; 24}subtype minutes {  x:int| x &gt;= 0 &amp;&amp; x &lt; 60}function days_in_month(month:months, year:years) returns (day:dayofmonth) {  if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  }}struct calendar_datetime {  month:months,  year:years,  day:dayofmonth,  hour:hours,  minute:minutes  | day &lt;= days_in_month(month,year)}variant actype {  f_22 {    built:calendar_datetime,    manufacturer:string  }  , f_18 {    built:calendar_datetime,    manufacturer:string  }  ,  a_330 {    built:calendar_datetime,    manufacturer:string  }  ,  b_787 {    built:calendar_datetime,    manufacturer:string  }}/* Information about an aircraft. */struct aircraft {   id:acid,  type:actype,  min_maintenance_time:minutes}struct missionspecs {// a mission requires one or more aircraft types  id:missionid,  aircrafts:set&lt;actype&gt;,  start:calendar_datetime,  end:calendar_datetime,  pittime:minutes}struct mission_roster {  mission:missionspecs,  schedule:map&lt;calendar_datetime,set&lt;aircraft&gt;&gt;}specification schedule(function calculate_mission_rosters(specs:set&lt;missionspecs&gt;, aircraftsused:set&lt;aircraft&gt;) returns (output:seq&lt;mission_roster&gt;)) {  true;}function find_aircraft(allaircrafts:set&lt;aircraft&gt;, id:acid) returns (selection:aircraft) {  empty(allaircrafts);} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#/</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  struct acid {  id:int // Aircraft identification number (i.e. Bureau Number).  | id &gt; 0} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   id &gt; 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   id file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.0/@invariant/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  struct missionid {  id:int  | id &gt; 0} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   id &gt; 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   id file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.1/@invariant/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  subtype months {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 12} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 1 &amp;&amp; x &lt;= 12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &lt;= 12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.2/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  subtype years {  x:int| x &gt;= 2019 &amp;&amp; x &lt;= 2021} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 2019 &amp;&amp; x &lt;= 2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   2019 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &lt;= 2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   2021 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.3/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  subtype dayofmonth {  x:int| x &gt;= 1 &amp;&amp; x &lt;= 31} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 1 &amp;&amp; x &lt;= 31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &lt;= 31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.4/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  subtype hours {  x:int| x &gt;= 0 &amp;&amp; x &lt; 24} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 0 &amp;&amp; x &lt; 24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &lt; 24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   24 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.5/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  subtype minutes {  x:int| x &gt;= 0 &amp;&amp; x &lt; 60} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  int file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@element/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 0 &amp;&amp; x &lt; 60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &gt;= 0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x &lt; 60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   x file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   60 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.6/@invariant/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  function days_in_month(month:months, year:years) returns (day:dayofmonth) {  if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  months file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  years file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  dayofmonth file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    if(month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12) {    return 31;  }  else {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10|| month==12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8|| month==10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7|| month ==8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 || month ==3 || month ==5 ||         month ==7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 || month ==3 || month ==5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 || month ==3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  1 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month ==3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  3 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month ==5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  5 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting           month ==7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting           month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  7 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month ==8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  8 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month==10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  10 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@left/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month==12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  12 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@test/@right/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting      return 31; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   31 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@thenexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   {    if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    }  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting      if(month==2) {      if(year%4==0) {        return 29;      }      else {        return 28;      }    }    else {      return 30;    } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month==2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  2 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting        if(year%4==0) {        return 29;      }      else {        return 28;      } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  year%4==0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  year%4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  year file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  4 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@left/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  0 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@test/@right/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting          return 29; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   29 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   29 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@thenexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   {        return 28;      } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting          return 28; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   28 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   28 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@thenexpr/@elseexpr/@elseexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   {      return 30;    } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting        return 30; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   30 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   30 file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.7/@expr/@elseexpr/@elseexpr/@elseexpr/@elseexpr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  struct calendar_datetime {  month:months,  year:years,  day:dayofmonth,  hour:hours,  minute:minutes  | day &lt;= days_in_month(month,year)} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  months file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  years file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  dayofmonth file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  hours file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.3/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@element.4/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   day &lt;= days_in_month(month,year) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   day file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@left</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   days_in_month(month,year) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  month file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right/@args.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  year file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.8/@invariant/@right/@args.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  variant actype {  f_22 {    built:calendar_datetime,    manufacturer:string  }  , f_18 {    built:calendar_datetime,    manufacturer:string  }  ,  a_330 {    built:calendar_datetime,    manufacturer:string  }  ,  b_787 {    built:calendar_datetime,    manufacturer:string  }} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    f_22 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.0/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting   f_18 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.1/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    a_330 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.2/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    b_787 {    built:calendar_datetime,    manufacturer:string  } file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  string file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.9/@alternatives.3/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  /* Information about an aircraft. */struct aircraft {   id:acid,  type:actype,  min_maintenance_time:minutes} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  acid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  actype file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.10/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  struct missionspecs {// a mission requires one or more aircraft types  id:missionid,  aircrafts:set&lt;actype&gt;,  start:calendar_datetime,  end:calendar_datetime,  pittime:minutes} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  missionid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;actype&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;actype&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  actype file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.1/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.2/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.3/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  minutes file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.11/@element.4/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  struct mission_roster {  mission:missionspecs,  schedule:map&lt;calendar_datetime,set&lt;aircraft&gt;&gt;} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  missionspecs file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.0/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  map&lt;calendar_datetime,set&lt;aircraft&gt;&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  map&lt;calendar_datetime,set&lt;aircraft&gt;&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  calendar_datetime file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@domain</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.12/@element.1/@type/@range/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  specification schedule(function calculate_mission_rosters(specs:set&lt;missionspecs&gt;, aircraftsused:set&lt;aircraft&gt;) returns (output:seq&lt;mission_roster&gt;)) {  true;} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;missionspecs&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;missionspecs&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  missionspecs file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@param.1/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  seq&lt;mission_roster&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  seq&lt;mission_roster&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  mission_roster file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@returnlist.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    true; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    true file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    true file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.13/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  function find_aircraft(allaircrafts:set&lt;aircraft&gt;, id:acid) returns (selection:aircraft) {  empty(allaircrafts);} file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  acid file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.1/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  aircraft file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@returnlist.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    empty(allaircrafts); file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  allaircrafts file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value/@element</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting    empty(allaircrafts) file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  allaircrafts file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@expr/@expr/@value/@element/@variable</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>FINE</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>visiting  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>Already visited  set&lt;aircraft&gt; file:///home/kecso/MIDAS/acl2.xtext/syntheto-xtext/demo/9_ams.synth#//@contents.14/@param.0/@tag/@type</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>Log of execution://src_gen/9_ams.synth.old.lisp</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>Reversed Syntheto: </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>struct acid { id : int | (id&gt;0)} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>struct missionid { id : int | (id&gt;0)} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>subtype months { x:int | ((x&gt;=1)&amp;&amp;(x&lt;=12))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>subtype years { x:int | ((x&gt;=2019)&amp;&amp;(x&lt;=2021))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>subtype dayofmonth { x:int | ((x&gt;=1)&amp;&amp;(x&lt;=31))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>subtype hours { x:int | ((x&gt;=0)&amp;&amp;(x&lt;24))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>subtype minutes { x:int | ((x&gt;=0)&amp;&amp;(x&lt;60))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>function days_in_month(month:months,year:years) returns (day:dayofmonth) { if((((((((month==1)||(month==3))||(month==5))||(month==7))||(month==8))||(month==10))||(month==12))) { 31;} else { if((month==2)) { if(((year%4)==0)) { 29;} else { 28;} } else { 30;} } } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>struct calendar_datetime { month : months, year : years, day : dayofmonth, hour : hours, minute : minutes | (day&lt;=days_in_month(month,year))} </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>actype { f_22built : calendar_datetime, manufacturer : string | f_18built : calendar_datetime, manufacturer : string | a_330built : calendar_datetime, manufacturer : string | b_787built : calendar_datetime, manufacturer : string | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>struct aircraft { id : acid, type : actype, min_maintenance_time : minutes | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>struct missionspecs { id : missionid, aircrafts : actype, start : calendar_datetime, end : calendar_datetime, pittime : minutes | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>struct mission_roster { mission : missionspecs, schedule :  | } </td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>specification schedule
+(function calculate_mission_rosters (specs:missionspecs,aircraftsused:aircraft) returns (output:seq&lt;mission_roster&gt;) ) {
+true;
+}</td>
+</tr>
+<tr>
+	<td>INFO</td>
+	<td>Jun 25,2021 21:49</td>
+	<td>function find_aircraft(allaircrafts:aircraft,id:acid) returns (selection:aircraft) { empty(allaircrafts);} </td>
+</tr>

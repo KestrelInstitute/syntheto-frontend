@@ -1,0 +1,82 @@
+@startuml
+
+abstract class Expression
+
+abstract class Literal extends Expression
+Literal <|-- BooleanLiteral
+Literal <|-- CharacterLiteral
+Literal <|-- StringLiteral
+Literal <|-- IntegerLiteral
+
+class Variable extends Expression {
+  name : identifier
+}
+
+class UnaryExpression extends Expression {
+  operator : unary_op
+}
+UnaryExpression o-- "1" Expression : operand
+
+note bottom of UnaryExpression
+Unary operators:
+  negation (booleans)
+  negation (integers)
+end note
+
+class BinaryExpression extends Expression {
+  operator : binary_op
+}
+BinaryExpression o-- "1" Expression : left_operand
+BinaryExpression o-- "1" Expression : right_operand
+
+note bottom of BinaryExpression
+Binary operators:
+  equality (all types)
+  non-equality (all types)
+  greater than (integers, characters, strings)
+  greater than or equal to (integers, characters, strings)
+  less than (integers, characters, strings)
+  less than or equal to (integers, characters, strings)
+  conjunction (booleans)
+  disjunction (booleans)
+  forward implication (booleans; 'only if')
+  backward implication (booleans; 'if')
+  coimplication (booleans; 'if and only if')
+  addition (integers)
+  subtraction (integers)
+  multiplication (integers)
+  division (integers; rounds towards 0)
+  remainder (integers; defined as dividend - quotient * divisor)
+end note
+
+class SelectionExpression extends Expression {
+  selector : identifier
+}
+SelectionExpression o-- "1" Expression : target
+
+class ConditionalExpression extends Expression
+ConditionalExpression o-- "1" Expression : test
+ConditionalExpression o-- "1" Expression : then
+ConditionalExpression o-- "1" Expression : else
+
+class CallExpression extends Expression {
+  function : identifier
+}
+CallExpression o-- "0..*" Expression : arguments
+
+class LetExpression extends Expression
+LetExpression o-- "1..*" LetBinding : bindings
+LetExpression o-- "1" Expression : body
+
+class LetBinding
+LetBinding o-- "1" TypedVariable : variable
+LetBinding o-- "1" Expression : value
+
+class TypedVariable {
+  name : identifier
+}
+TypedVariable o-- "1" Type
+
+abstract class Type
+
+@enduml

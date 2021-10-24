@@ -1,0 +1,118 @@
+{
+    "name": "midas-syntheto",
+    "displayName": "Midas Syntheto",
+    "description": "Midas Syntheto Language ",
+    "version": "0.0.56",
+    "publisher": "vanderbilt",
+    "icon": "images/vu.png",
+    "license": "EPL-1.0",
+    "preview": true,
+    "enableProposedApi": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/midas-vu/syntheto-xtext.git"
+    },
+    "bugs": {
+        "url": "https://github.com/midas-vu/syntheto-xtext/issues"
+    },
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:syntheto",
+        "onNotebook:mnb"
+    ],
+    "main": "out/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "syntheto",
+                "aliases": [
+                    "syntheto"
+                ],
+                "extensions": [
+                    ".synth"
+                ],
+                "configuration": "./syntheto.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "syntheto",
+                "scopeName": "text.synth",
+                "path": "./syntaxes/syntheto.tmLanguage.json"
+            }
+        ],
+        "notebooks": [
+            {
+                "type": "mnb",
+                "displayName": "Midas Notebook",
+                "selector": [
+                    {
+                        "filenamePattern": "*.mnb"
+                    }
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "title": "MIDAS: export into a singular Syntheto",
+                "command": "midas.exportSyntheto"
+            }
+        ],
+        "configuration": {
+            "title": "ACL2 bridge address",
+            "properties": {
+                "midas.remoteExecutionServerAddress": {
+                    "type": "string",
+                    "default": "localhost:8080",
+                    "description": "Configure the base URI where the execution commands can be sent"
+                }
+            }
+        },
+        "menus": {
+            "editor/title/context": [
+                {
+                    "command": "midas.exportSyntheto",
+                    "group": "z_commands"
+                }
+            ]
+        }
+    },
+    "devDependencies": {
+        "vscode": "^1.1.33",
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.4",
+        "@types/node": "^12.11.7",
+        "eslint": "^7.21.0",
+        "@typescript-eslint/eslint-plugin": "^4.14.1",
+        "@typescript-eslint/parser": "^4.14.1",
+        "glob": "^7.1.6",
+        "mocha": "^8.2.1",
+        "typescript": "^4.1.3",
+        "vscode-test": "^1.5.0",
+        "ts-loader": "^8.0.14",
+        "webpack": "^5.19.0",
+        "webpack-cli": "^4.4.0",
+        "vscode-dts": "^0.3.1"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^5.2.1",
+        "vscode-jsonrpc": "^4.0.0",
+        "typescript": "^4.1.3",
+        "@types/node": "^12.11.7",
+        "@types/superagent": "^4.1.11",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "superagent": "^6.1.0"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -w -p ./",
+        "update-vscode": "node ./node_modules/vscode/bin/install"
+    }
+}
