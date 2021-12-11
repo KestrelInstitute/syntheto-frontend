@@ -1,6 +1,6 @@
 ![extensionrelease](https://github.com/midas-vu/syntheto-xtext/workflows/extensionrelease/badge.svg) ![gradlebuild](https://github.com/midas-vu/syntheto-xtext/workflows/gradlebuild/badge.svg)
 
-#Overview
+# Overview
 
 This is the syntheto vscode extension repository
 
